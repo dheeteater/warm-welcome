@@ -222,11 +222,11 @@ export function ChangelogTable() {
           {active && (
             <>
               <SheetHeader className="border-b border-border pb-4">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Proposal #{active.n} · {active.date}
+                <p className="label-mono text-muted-foreground">
+                  #{active.n} · {active.date}
                   {active.structural ? " · Structural" : ""}
                 </p>
-                <SheetTitle className="font-[family-name:var(--font-display)] text-xl leading-snug">
+                <SheetTitle className="text-xl font-semibold leading-snug tracking-tight">
                   {active.title}
                 </SheetTitle>
                 <SheetDescription className="sr-only">
@@ -236,17 +236,21 @@ export function ChangelogTable() {
 
               <div className="space-y-5 px-4 pb-8 text-sm">
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Result
-                  </h4>
-                  <p className="mt-1">{active.result}</p>
+                  <h4 className="label-caps text-muted-foreground">Result</h4>
+                  <div className="mt-1 flex items-start gap-2">
+                    <ResultTag p={active} />
+                  </div>
+                  <p className="label-mono mt-1 text-muted-foreground">
+                    {active.result}
+                  </p>
                 </section>
 
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Constitution mapping
                   </h4>
-                  <p className="mt-1">{active.section}</p>
+                  <p className="label-mono mt-1">{active.section}</p>
+
                   {active.note && (
                     <p className="mt-2 text-muted-foreground">{active.note}</p>
                   )}
