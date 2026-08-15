@@ -151,6 +151,9 @@ function Index() {
             <ExternalButton href={DOCS_VIEWER} variant="outline">
               Read Full Docs
             </ExternalButton>
+            <ExternalButton href={DEVTO_ARTICLE} variant="outline">
+              Read Full Article
+            </ExternalButton>
           </div>
           <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
             Covers 3 Sep 2025 to 24 Jul 2026. 30 Snapshot proposals reviewed, 15
