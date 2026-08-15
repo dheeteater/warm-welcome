@@ -137,10 +137,10 @@ function Index() {
       <main className="mx-auto max-w-6xl px-5">
         {/* 1. Hero */}
         <section className="py-12">
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          <h1 className="headline-xl max-w-3xl">
             Redbelly DAO Governance Changelog
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-foreground/80">
+          <p className="body-lg mt-4 max-w-2xl text-foreground/80">
             The single reference for what is currently in force. Every entry
             sourced to a primary vote, poll, or proposal record.
           </p>
@@ -148,17 +148,18 @@ function Index() {
             <ExternalButton href={PDF_REPORT}>
               Read Full PDF Report
             </ExternalButton>
-            <ExternalButton href={DOCS_VIEWER} variant="outline">
+            <ExternalButton href={DOCS_VIEWER} variant="ghost">
               Read Full Docs
             </ExternalButton>
-            <ExternalButton href={DEVTO_ARTICLE} variant="outline">
+            <ExternalButton href={DEVTO_ARTICLE} variant="ghost">
               Read Full Article
             </ExternalButton>
           </div>
-          <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
+          <p className="label-mono mt-6 text-muted-foreground">
             Covers 3 Sep 2025 to 24 Jul 2026. 30 Snapshot proposals reviewed, 15
             structural.
           </p>
+
         </section>
 
         {/* 2. Current state */}
