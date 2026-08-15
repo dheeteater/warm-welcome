@@ -8,8 +8,8 @@ const PDF_REPORT =
 const DOCS_VIEWER =
   "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/poundeater/23/main/website/Redbelly-DAO-Governance-Changelog.docx&embedded=true";
 const GITHUB = "https://github.com/poundeater/23";
-// TODO: replace with the published dev.to article URL once the article goes live.
-const DEVTO_ARTICLE = "[PASTE_DEVTO_ARTICLE_LINK_HERE]";
+const DEVTO_ARTICLE =
+  "https://dev.to/poundeater/redbelly-community-dao-what-is-actually-in-force-right-now-published-false-tags-dao-governance-49i9";
 
 export const Route = createFileRoute("/")({
   head: () => ({
