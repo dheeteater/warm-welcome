@@ -164,11 +164,11 @@ function Index() {
 
         {/* 2. Current state */}
         <Section id="current-state" index="Section 01" title="Current-State Summary">
-          <div className="border border-foreground bg-card p-5 sm:p-7">
+          <div className="border border-border bg-card p-5 sm:p-7 rounded-[8px]">
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
               As of publication
             </p>
-            <ul className="mt-4 space-y-4 text-sm leading-relaxed">
+            <ul className="body-md mt-4 space-y-4">
               <li>
                 <span className="font-semibold">Governing documents.</span>{" "}
                 Redbelly Community DAO operates under two ratified governing
@@ -216,12 +216,12 @@ function Index() {
 
         {/* 3. Verification flag */}
         <Section id="verification-flag" index="Section 02" title="Verification Flag">
-          <div className="border border-border border-l-4 border-l-destructive bg-card p-5">
+          <div className="border border-border border-l-4 border-l-destructive bg-card p-5 rounded-[8px]">
             <h3 className="text-base font-semibold text-destructive">
               Open discrepancy - whitelist removal, needs on-chain check before
               publishing as resolved
             </h3>
-            <p className="mt-3 text-sm leading-relaxed">
+            <p className="body-md mt-3">
               Two conflicting claims exist for the same decision. Proposal #28,
               "DAO Proposal: Increase Governance Accessibility and Protect
               Contributor Privacy," passed and closed 5 Jul 2026, removing the
@@ -252,7 +252,7 @@ function Index() {
           index="Section 04"
           title="Discord Poll-Only Entry"
         >
-          <div className="border border-dashed border-foreground bg-card p-5">
+          <div className="border border-dashed border-border bg-card p-5 rounded-[8px]">
             <p className="text-xs uppercase tracking-[0.2em] text-destructive">
               Poll-only, never reached Snapshot, unratified
             </p>
@@ -303,12 +303,12 @@ function Index() {
           index="Section 05"
           title="Disputed Item, Resolved With Reasoning"
         >
-          <div className="border border-foreground bg-card p-5">
+          <div className="border border-border bg-card p-5 rounded-[8px]">
             <h3 className="text-base font-semibold">
               DAO Guild Structure, Consolidation - resolved: passed and
               implemented
             </h3>
-            <p className="mt-3 text-sm leading-relaxed">
+            <p className="body-md mt-3">
               Proposal #5 closed 20 Sep 2025 with 42.95% For against a 56.71%
               Abstain plurality and 0.34% Against. On a strict
               majority-of-choices read this is ambiguous, since Abstain
@@ -337,11 +337,11 @@ function Index() {
           title="Unratified and Unresolved Items"
         >
           <div className="grid gap-5 lg:grid-cols-2">
-            <div className="border border-foreground/40 bg-card p-5">
+            <div className="border border-border bg-card p-5 rounded-[8px]">
               <h3 className="text-base font-semibold">
                 Not a ratification event: Feb 2026 Google Form
               </h3>
-              <p className="mt-3 text-sm leading-relaxed">
+              <p className="body-md mt-3">
                 A Google Form titled "DAO Constitution Ratification, YES/NO
                 Vote" ran 11 to 14 Feb 2026 with 9 to 10 respondents. This is
                 not how the Constitution was ratified. The actual ratification
@@ -353,11 +353,11 @@ function Index() {
                 log this form's items as ratified constitutional changes.
               </p>
             </div>
-            <div className="border border-foreground/40 bg-card p-5">
+            <div className="border border-border bg-card p-5 rounded-[8px]">
               <h3 className="text-base font-semibold">
                 Unresolved: Constitution v1.3 reference with no located document
               </h3>
-              <p className="mt-3 text-sm leading-relaxed">
+              <p className="body-md mt-3">
                 Snapshot proposal #28 (Jul 2026) lists "Redbelly Community DAO
                 Constitution v1.3" as a supporting document. No v1.3 file exists
                 in the source repository or in the governing-resource links, all
@@ -372,7 +372,7 @@ function Index() {
 
         {/* 9. Data gaps */}
         <Section id="data-gaps" index="Section 07" title="Data Gaps">
-          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed">
+          <ul className="body-md list-disc space-y-2 pl-5">
             <li>
               Exact vote-choice percentages were not available for proposals 12,
               13, 15, 16, 17, 25, 26, 27, 28, 29. Pass/reject is known from
