@@ -8,8 +8,8 @@ const PDF_REPORT =
 const DOCS_VIEWER =
   "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/poundeater/23/main/website/Redbelly-DAO-Governance-Changelog.docx&embedded=true";
 const GITHUB = "https://github.com/poundeater/23";
-// TODO: replace with the published dev.to article URL once the article goes live.
-const DEVTO_ARTICLE = "[PASTE_DEVTO_ARTICLE_LINK_HERE]";
+const DEVTO_ARTICLE =
+  "https://dev.to/poundeater/redbelly-community-dao-what-is-actually-in-force-right-now-published-false-tags-dao-governance-49i9";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -150,6 +150,9 @@ function Index() {
             </ExternalButton>
             <ExternalButton href={DOCS_VIEWER} variant="outline">
               Read Full Docs
+            </ExternalButton>
+            <ExternalButton href={DEVTO_ARTICLE} variant="outline">
+              Read Full Article
             </ExternalButton>
           </div>
           <p className="mt-6 text-xs uppercase tracking-widest text-muted-foreground">
@@ -426,7 +429,6 @@ function Index() {
                 <path d="M9 12h1.2a1.3 1.3 0 0 1 0 2.6H9V12v5" />
               </svg>
             </FooterLink>
-            {/* Placeholder href: swap DEVTO_ARTICLE for the live article URL when published. */}
             <FooterLink href={DEVTO_ARTICLE} label="dev.to">
               <svg {...iconProps}>
                 <rect x="2" y="5" width="20" height="14" rx="1.5" />
