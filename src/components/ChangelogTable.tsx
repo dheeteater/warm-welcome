@@ -18,12 +18,12 @@ type FilterKey =
   | "notapplied";
 
 const FILTERS: { key: FilterKey; label: string }[] = [
-  { key: "all", label: "All (30)" },
+  { key: "all", label: "All" },
   { key: "structural", label: "Structural (15)" },
-  { key: "passed", label: "Passed (18)" },
-  { key: "rejected", label: "Rejected (6)" },
-  { key: "closed", label: "Closed/Election (6)" },
-  { key: "notapplied", label: "Not Applied (1)" },
+  { key: "passed", label: "Passed" },
+  { key: "rejected", label: "Rejected" },
+  { key: "closed", label: "Closed/Election" },
+  { key: "notapplied", label: "Not Applied" },
 ];
 
 function matches(p: Proposal, f: FilterKey) {
@@ -35,7 +35,7 @@ function matches(p: Proposal, f: FilterKey) {
     case "rejected":
       return p.outcome === "Rejected";
     case "closed":
-      return p.outcome === "Closed" || p.appliedKind === "Disputed";
+      return p.outcome === "Closed" || p.result.startsWith("Closed on Snapshot");
     case "notapplied":
       return p.appliedKind === "Disputed" || p.appliedKind === "No";
     default:
