@@ -44,16 +44,19 @@ function matches(p: Proposal, f: FilterKey) {
 }
 
 function ResultTag({ p }: { p: Proposal }) {
+  const dot =
+    p.outcome === "Passed"
+      ? "bg-ok"
+      : p.outcome === "Rejected"
+        ? "bg-neutral-dot"
+        : "bg-warn";
   return (
-    <span
-      className={cn(
-        "inline-block border px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide",
-        p.outcome === "Rejected"
-          ? "border-destructive text-destructive"
-          : "border-foreground/40 text-foreground",
-      )}
-    >
-      {p.outcome}
+    <span className="inline-flex items-center gap-2">
+      <span
+        className={cn("inline-block size-2 shrink-0 rounded-full", dot)}
+        aria-hidden="true"
+      />
+      <span className="label-mono uppercase">{p.outcome}</span>
     </span>
   );
 }
@@ -78,12 +81,13 @@ function DetailLink({ href, children }: { href: string; children: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center border border-foreground bg-transparent px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+      className="inline-flex items-center justify-center rounded-[4px] border border-border bg-transparent px-3 py-2 text-xs font-medium text-foreground transition-colors hover:border-link hover:text-link"
     >
       {children}
     </a>
   );
 }
+
 
 export function ChangelogTable() {
   const [filter, setFilter] = useState<FilterKey>("all");
