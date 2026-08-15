@@ -444,6 +444,8 @@ function Index() {
           </p>
         </div>
       </footer>
+
+      <ScrollToTop />
     </div>
   );
 }
