@@ -218,7 +218,7 @@ export function ChangelogTable() {
       </div>
 
       <Sheet open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <SheetContent className="w-full overflow-y-auto bg-background sm:max-w-lg">
+        <SheetContent className="w-full overflow-y-auto rounded-l-[8px] bg-background sm:max-w-lg">
           {active && (
             <>
               <SheetHeader className="border-b border-border pb-4">
