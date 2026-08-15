@@ -37,7 +37,7 @@ export function ScrollToTop() {
       }`}
     >
       <svg
-        className="h-4 w-4"
+        className="h-6 w-6"
         focusable="false"
         aria-hidden="true"
         viewBox="0 0 24 24"
