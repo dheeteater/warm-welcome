@@ -429,7 +429,6 @@ function Index() {
                 <path d="M9 12h1.2a1.3 1.3 0 0 1 0 2.6H9V12v5" />
               </svg>
             </FooterLink>
-            {/* Placeholder href: swap DEVTO_ARTICLE for the live article URL when published. */}
             <FooterLink href={DEVTO_ARTICLE} label="dev.to">
               <svg {...iconProps}>
                 <rect x="2" y="5" width="20" height="14" rx="1.5" />
