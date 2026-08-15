@@ -44,16 +44,19 @@ function matches(p: Proposal, f: FilterKey) {
 }
 
 function ResultTag({ p }: { p: Proposal }) {
+  const dot =
+    p.outcome === "Passed"
+      ? "bg-ok"
+      : p.outcome === "Rejected"
+        ? "bg-neutral-dot"
+        : "bg-warn";
   return (
-    <span
-      className={cn(
-        "inline-block border px-1.5 py-0.5 text-[11px] font-medium uppercase tracking-wide",
-        p.outcome === "Rejected"
-          ? "border-destructive text-destructive"
-          : "border-foreground/40 text-foreground",
-      )}
-    >
-      {p.outcome}
+    <span className="inline-flex items-center gap-2">
+      <span
+        className={cn("inline-block size-2 shrink-0 rounded-full", dot)}
+        aria-hidden="true"
+      />
+      <span className="label-mono uppercase">{p.outcome}</span>
     </span>
   );
 }
@@ -78,12 +81,13 @@ function DetailLink({ href, children }: { href: string; children: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center border border-foreground bg-transparent px-3 py-2 text-xs font-medium text-foreground transition-colors hover:bg-foreground hover:text-background"
+      className="inline-flex items-center justify-center rounded-[4px] border border-border bg-transparent px-3 py-2 text-xs font-medium text-foreground transition-colors hover:border-link hover:text-link"
     >
       {children}
     </a>
   );
 }
+
 
 export function ChangelogTable() {
   const [filter, setFilter] = useState<FilterKey>("all");
@@ -108,7 +112,7 @@ export function ChangelogTable() {
             key={f.key}
             onClick={() => setFilter(f.key)}
             className={cn(
-              "border px-3 py-1.5 text-xs font-medium uppercase tracking-wide transition-colors",
+              "rounded-[4px] border px-3 py-1.5 label-mono uppercase transition-colors",
               filter === f.key
                 ? "border-foreground bg-foreground text-background"
                 : "border-border text-foreground hover:border-foreground",
@@ -122,7 +126,7 @@ export function ChangelogTable() {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Filter by title"
           aria-label="Filter by title"
-          className="ml-auto w-full border border-border bg-transparent px-3 py-1.5 text-xs outline-none placeholder:text-muted-foreground focus:border-foreground sm:w-56"
+          className="ml-auto w-full rounded-[4px] border border-border bg-transparent px-3 py-1.5 text-xs outline-none placeholder:text-muted-foreground focus:border-foreground sm:w-56"
         />
       </div>
 
@@ -153,7 +157,7 @@ export function ChangelogTable() {
                 onKeyDown={(e) => e.key === "Enter" && setActive(p)}
                 className="cursor-pointer border-t border-border align-top outline-none hover:bg-secondary focus:bg-secondary"
               >
-                <td className="whitespace-nowrap px-3 py-2 tabular-nums">
+                <td className="whitespace-nowrap px-3 py-2 label-mono tabular-nums">
                   <span className="inline-flex items-center gap-2">
                     {p.structural ? (
                       <span
@@ -166,7 +170,7 @@ export function ChangelogTable() {
                     {p.n}
                   </span>
                 </td>
-                <td className="whitespace-nowrap px-3 py-2 text-xs text-muted-foreground">
+                <td className="whitespace-nowrap px-3 py-2 label-mono text-muted-foreground">
                   {p.date}
                 </td>
                 <td className="max-w-[22rem] px-3 py-2 font-medium">
@@ -175,7 +179,7 @@ export function ChangelogTable() {
                 <td className="px-3 py-2">
                   <ResultTag p={p} />
                 </td>
-                <td className="max-w-[16rem] px-3 py-2 text-xs text-muted-foreground">
+                <td className="max-w-[16rem] px-3 py-2 label-mono text-muted-foreground">
                   {p.section}
                 </td>
                 <td className="px-3 py-2">
@@ -193,10 +197,10 @@ export function ChangelogTable() {
           <button
             key={p.n}
             onClick={() => setActive(p)}
-            className="block w-full border border-foreground/30 bg-card p-3 text-left hover:border-foreground"
+            className="block w-full rounded-[8px] border border-border bg-card p-3 text-left hover:border-foreground"
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-2 text-xs tabular-nums text-muted-foreground">
+              <span className="inline-flex items-center gap-2 label-mono tabular-nums text-muted-foreground">
                 {p.structural && (
                   <span className="inline-block size-1.5 rounded-full bg-foreground" />
                 )}
@@ -205,7 +209,7 @@ export function ChangelogTable() {
               <ResultTag p={p} />
             </div>
             <p className="mt-1.5 text-sm font-medium">{p.title}</p>
-            <p className="mt-1 text-xs text-muted-foreground">{p.section}</p>
+            <p className="mt-1 label-mono text-muted-foreground">{p.section}</p>
             <p className="mt-1">
               <AppliedTag p={p} />
             </p>
@@ -214,15 +218,15 @@ export function ChangelogTable() {
       </div>
 
       <Sheet open={!!active} onOpenChange={(o) => !o && setActive(null)}>
-        <SheetContent className="w-full overflow-y-auto bg-background sm:max-w-lg">
+        <SheetContent className="w-full overflow-y-auto rounded-l-[8px] bg-background sm:max-w-lg">
           {active && (
             <>
               <SheetHeader className="border-b border-border pb-4">
-                <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                  Proposal #{active.n} · {active.date}
+                <p className="label-mono text-muted-foreground">
+                  #{active.n} · {active.date}
                   {active.structural ? " · Structural" : ""}
                 </p>
-                <SheetTitle className="font-[family-name:var(--font-display)] text-xl leading-snug">
+                <SheetTitle className="text-xl font-semibold leading-snug tracking-tight">
                   {active.title}
                 </SheetTitle>
                 <SheetDescription className="sr-only">
@@ -232,24 +236,28 @@ export function ChangelogTable() {
 
               <div className="space-y-5 px-4 pb-8 text-sm">
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Result
-                  </h4>
-                  <p className="mt-1">{active.result}</p>
+                  <h4 className="label-caps text-muted-foreground">Result</h4>
+                  <div className="mt-1 flex items-start gap-2">
+                    <ResultTag p={active} />
+                  </div>
+                  <p className="label-mono mt-1 text-muted-foreground">
+                    {active.result}
+                  </p>
                 </section>
 
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Constitution mapping
                   </h4>
-                  <p className="mt-1">{active.section}</p>
+                  <p className="label-mono mt-1">{active.section}</p>
+
                   {active.note && (
                     <p className="mt-2 text-muted-foreground">{active.note}</p>
                   )}
                 </section>
 
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Applied
                   </h4>
                   <p
@@ -265,7 +273,7 @@ export function ChangelogTable() {
                 </section>
 
                 <section className="border-t border-border pt-4">
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Primary records
                   </h4>
                   <div className="mt-2 flex flex-col gap-2">
@@ -279,7 +287,7 @@ export function ChangelogTable() {
                       href={active.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-xs underline underline-offset-4"
+                      className="text-xs text-link underline underline-offset-4"
                     >
                       Open live Snapshot page
                     </a>

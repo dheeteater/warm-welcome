@@ -21,6 +21,16 @@
 @theme inline {
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  --color-accent-red: var(--accent-red);
+  --color-link: var(--link);
+  --color-link-dark: var(--link-dark);
+  --color-outline-dark: var(--outline-dark);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-neutral-dot: var(--neutral-dot);
+
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -65,28 +75,40 @@
 }
 
 :root {
-  --radius: 0.125rem;
-  --font-display: "Zilla Slab", Georgia, serif;
-  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
-  --background: oklch(0.965 0.008 85);
-  --foreground: oklch(0.22 0.045 265);
-  --card: oklch(0.978 0.006 85);
-  --card-foreground: oklch(0.22 0.045 265);
-  --popover: oklch(0.978 0.006 85);
-  --popover-foreground: oklch(0.22 0.045 265);
-  --primary: oklch(0.22 0.045 265);
-  --primary-foreground: oklch(0.965 0.008 85);
-  --secondary: oklch(0.93 0.008 85);
-  --secondary-foreground: oklch(0.22 0.045 265);
-  --muted: oklch(0.93 0.008 85);
-  --muted-foreground: oklch(0.45 0.02 265);
-  --accent: oklch(0.52 0.16 25);
-  --accent-foreground: oklch(0.978 0.006 85);
-  --destructive: oklch(0.52 0.16 25);
-  --destructive-foreground: oklch(0.978 0.006 85);
-  --border: oklch(0.78 0.015 265);
-  --input: oklch(0.78 0.015 265);
-  --ring: oklch(0.22 0.045 265);
+  --radius: 0.25rem;
+  --font-display: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Brand kit tokens */
+  --accent-red: oklch(0.6539 0.1926 25.14); /* #EF5350 */
+  --link: oklch(0.5034 0.1761 25.36); /* #B3272A on light */
+  --link-dark: oklch(0.8373 0.0896 23.36); /* #ffb3ae on dark */
+  --outline-dark: oklch(0.3875 0.0231 243.51); /* #3a4650 */
+  --ok: oklch(0.8712 0.1363 154.45); /* #86EFAC */
+  --warn: oklch(0.879 0.1534 91.61); /* #FCD34D */
+  --neutral-dot: oklch(0.7086 0.0241 233.52); /* #93a4ae */
+
+  --background: oklch(0.9757 0.0017 247.84); /* #F6F7F8 */
+  --foreground: oklch(0.2388 0.0241 248.87); /* #16202A */
+  --card: oklch(1 0 0); /* #FFFFFF */
+  --card-foreground: oklch(0.2388 0.0241 248.87);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2388 0.0241 248.87);
+  --primary: oklch(0.2388 0.0241 248.87);
+  --primary-foreground: oklch(0.9757 0.0017 247.84);
+  --secondary: oklch(0.9136 0.006 239.83);
+  --secondary-foreground: oklch(0.2388 0.0241 248.87);
+  --muted: oklch(0.9136 0.006 239.83);
+  --muted-foreground: oklch(0.48 0.018 245);
+  --accent: oklch(0.6539 0.1926 25.14);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.5034 0.1761 25.36);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.86 0.008 240);
+  --input: oklch(0.86 0.008 240);
+  --ring: oklch(0.2388 0.0241 248.87);
+
   --chart-1: oklch(0.22 0.045 265);
   --chart-2: oklch(0.52 0.16 25);
   --chart-3: oklch(0.45 0.02 265);
@@ -153,4 +175,46 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
   }
+
+}
+
+/* Brand kit type scale */
+@utility headline-xl {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+@utility headline-lg {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+@utility body-lg {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+@utility body-md {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+@utility label-caps {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
