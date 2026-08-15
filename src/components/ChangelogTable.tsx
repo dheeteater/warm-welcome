@@ -257,7 +257,7 @@ export function ChangelogTable() {
                 </section>
 
                 <section>
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Applied
                   </h4>
                   <p
@@ -273,7 +273,7 @@ export function ChangelogTable() {
                 </section>
 
                 <section className="border-t border-border pt-4">
-                  <h4 className="text-xs uppercase tracking-widest text-muted-foreground">
+                  <h4 className="label-caps text-muted-foreground">
                     Primary records
                   </h4>
                   <div className="mt-2 flex flex-col gap-2">
