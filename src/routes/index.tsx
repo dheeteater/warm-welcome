@@ -50,10 +50,8 @@ function Section({
 }) {
   return (
     <section id={id} className="border-t border-foreground/20 py-10">
-      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-        {index}
-      </p>
-      <h2 className="mt-2 text-2xl font-semibold tracking-tight">{title}</h2>
+      <p className="label-caps text-muted-foreground">{index}</p>
+      <h2 className="headline-lg mt-2">{title}</h2>
       <div className="mt-5">{children}</div>
     </section>
   );
@@ -62,18 +60,18 @@ function Section({
 function ExternalButton({
   href,
   children,
-  variant = "solid",
+  variant = "primary",
 }: {
   href: string;
   children: string;
-  variant?: "solid" | "outline";
+  variant?: "primary" | "ghost";
 }) {
   const base =
-    "inline-flex flex-1 items-center justify-center border border-foreground px-5 py-3 text-sm font-medium tracking-wide transition-colors";
+    "inline-flex flex-1 items-center justify-center rounded-[4px] px-5 py-3 text-sm font-medium tracking-wide transition-colors";
   const style =
-    variant === "solid"
-      ? "bg-foreground text-background hover:bg-foreground/90"
-      : "bg-background text-foreground hover:bg-secondary";
+    variant === "primary"
+      ? "bg-accent-red text-accent-foreground hover:bg-accent-red/90"
+      : "border border-border bg-transparent text-foreground hover:border-link hover:text-link";
   return (
     <a
       href={href}
@@ -85,6 +83,7 @@ function ExternalButton({
     </a>
   );
 }
+
 
 function FooterLink({
   href,
