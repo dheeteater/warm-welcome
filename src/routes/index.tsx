@@ -165,7 +165,7 @@ function Index() {
         {/* 2. Current state */}
         <Section id="current-state" index="Section 01" title="Current-State Summary">
           <div className="border border-border bg-card p-5 sm:p-7 rounded-[8px]">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <p className="label-caps text-muted-foreground">
               As of publication
             </p>
             <ul className="body-md mt-4 space-y-4">
@@ -253,7 +253,7 @@ function Index() {
           title="Discord Poll-Only Entry"
         >
           <div className="border border-dashed border-border bg-card p-5 rounded-[8px]">
-            <p className="text-xs uppercase tracking-[0.2em] text-destructive">
+            <p className="label-caps text-destructive">
               Poll-only, never reached Snapshot, unratified
             </p>
             <h3 className="mt-2 text-lg font-semibold">
@@ -261,19 +261,19 @@ function Index() {
             </h3>
             <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
               <div>
-                <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="label-caps text-muted-foreground">
                   Date
                 </dt>
-                <dd>1 Mar 2026, Discord poll</dd>
+                <dd className="label-mono">1 Mar 2026, Discord poll</dd>
               </div>
               <div>
-                <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="label-caps text-muted-foreground">
                   Result
                 </dt>
-                <dd>Approved at 75%, announced as active by the DAO</dd>
+                <dd className="label-mono">Approved at 75%, announced as active by the DAO</dd>
               </div>
               <div className="sm:col-span-2">
-                <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="label-caps text-muted-foreground">
                   Constitution section
                 </dt>
                 <dd>
@@ -282,7 +282,7 @@ function Index() {
                 </dd>
               </div>
               <div className="sm:col-span-2">
-                <dt className="text-xs uppercase tracking-widest text-muted-foreground">
+                <dt className="label-caps text-muted-foreground">
                   Applied
                 </dt>
                 <dd className="font-semibold text-destructive">
