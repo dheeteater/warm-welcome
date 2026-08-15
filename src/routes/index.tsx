@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ChangelogTable } from "@/components/ChangelogTable";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 const LOGO_DARK =
   "https://cdn.jsdelivr.net/gh/poundeater/23@main/website/dao-logo-on-dark.png";
@@ -443,6 +444,8 @@ function Index() {
           </p>
         </div>
       </footer>
+
+      <ScrollToTop />
     </div>
   );
 }
